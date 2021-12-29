@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <p id="english">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe a, provident inventore molestiae
+            fugiat
+            veniam necessitatibus enim atque dolorem vero ipsa nobis nesciunt suscipit labore harum hic facilis,
+            reiciendis ducimus?</p>
+        <p id="chinese">
+            一下不夠雲林資料點點像素老公完全投資領導體內你要室內處理，勞動點擊法規地下，民間隨意幸福無關今天生活一批擔心角度領導未來重量三年，不禁陷入將軍改進人體精英不停貫徹品質素質，來源所以這裡關注判斷請求體驗湖口根據專區請教，點這裡之間上傳，北方傳播多個，的說今。
+        </p>
+        <button id="redBtn" type="button" class="btn btn-light">中文</button>
+        <button id="greenBtn" type="button" class="btn btn-dark">英文</button>
+        <button id="resetBtn" type="button" class="btn btn-info">reset</button>
+        <table class="table table-striped mt-5">
+            <thead>
+                <tr class="row1">
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="row2">
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>@mdo</td>
+                </tr>
+                <tr class="row1">
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>@fat</td>
+                </tr>
+                <tr id="row4">
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                    <td>@twitter</td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-success">Success</button>
+        <button type="button" class="btn btn-danger">Danger</button>
+        
+        <ul class="list-group mt-5 text-center">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Morbi leo risus</li>
+            <li class="list-group-item">Porta ac consectetur ac</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+
+            $("#redBtn").click(function(){
+                $("#chinese").show();
+                $("#english").hide();
+                $("button").removelass("btn-light");
+                $("redBtn").addClass("btn-dark");
+        });
+            $("#greenBtn").click(function(){
+                $("#chinese").hide();
+                $("#english").show();
+                $("button").removeClass("btn-dark");
+                $("greenBtn").addClass("btn-light");
+            });
+            $("#resetBtn").click(function(){
+                $("#chinese").show();
+                $("#english").show();
+                $("button").removeClass("btn-light","btn-dark");
+
+            });
+
+        });
+
+
+
+
+        $(document).ready(function () {
+            $(".row1").css("background", "Linen");
+            $("#row2").css("background", "LightSteelBlue");
+            $(".row1").css("background", "Linen");
+            $("#row4").css("background", "LightSteelBlue");
+
+        });
+    </script>
+</body>
+
+</html>
