@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-12">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est, architecto!</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est, architecto!</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est, architecto!</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est, architecto!</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est, architecto!</p>
+
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <button type="button">1</button>
+                <button type="button">2</button>
+            </div>
+        </div>
+        <div>
+            <ol>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, beatae?</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, beatae?</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, beatae?</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, beatae?</li>
+                <button type="button" class="color">click</button>
+                <button type="button" class="add">add</button>
+                <button type="button" class="del">del</button>
+
+            </ol>
+            <ol>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, beatae?</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, beatae?</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, beatae?</li>
+                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, beatae?</li>
+                <button type="button">click2</button>
+                <button type="button">add</button>
+                <button type="button">del</button>
+
+            </ol>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script>
+        // $(document).ready(function () {
+        //     $('button').on('click',function () {
+        //         $('p').first().empty();
+        //     });
+
+        //     $('button').eq(1).click(function(){
+        //         $('p').first().text('1231236666666666666666666666666666');
+        //     });
+            
+        // });
+
+        // 文字換色
+        $(document).ready(function (){
+            $('.color').on('click',function (){
+                $(this).siblings().filter('li').toggleClass('text-danger');
+            });
+        });
+
+        // 增加li行數
+        $('.add').on('click',function () {
+            console.log('.add');
+            cloneLi = $(this).siblings().filter('li').last().clone();
+            $(this).siblings().filter('li').last().after(cloneLi);
+        });
+        
+        //刪除li行數 
+        $('.del').on('click',function () {
+            console.log('del');
+            $(this).siblings().filter('li').last().remove();
+        });
+
+    </script>
+</body>
+
+</html>

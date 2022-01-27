@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        *{
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12">
+                <div id="time">:</div>
+            </div>
+            <div class="col-12">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam dicta nisi rem temporibus eligendi
+                    suscipit quaerat dolor natus impedit odit.</p>
+            </div>
+            <div class="col-4">
+                <button type="button" id="hideBtn">hide button</button>
+            </div>
+            <div class="col-4">
+                <button type="button" id="showBtn">show button</button>
+            </div>
+            <div class="col-4">
+                <button type="button" id="toggleBtn">toggle button</button>
+            </div>
+            <div class="col-12">
+                <p id="pFade">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora molestiae tempore
+                    repellendus eos unde exercitationem. Repudiandae, tenetur dolores, ducimus nulla beatae eveniet
+                    ipsam provident quae, eligendi nobis ab earum maxime.</p>
+            </div>
+            <div class="col-3">
+                <button type="button" id="fadeInBtn">fadeInBtn</button>
+            </div>
+            <div class="col-3">
+                <button type="button" id="fadeOutBtn">fadeOutBtn</button>
+            </div>
+            <div class="col-3">
+                <button type="button" id="fadeOutBtn">fadeOutBtn</button>
+            </div>
+            <div class="col-3">
+                <button type="button" id="fadeOToBtn">fadeToBtn</button>
+            </div>
+
+
+
+
+
+
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="box">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, ducimus amet. Vero deleniti error
+                        modi! Dolorem distinctio voluptatum quo corrupti sed accusantium aliquam sequi impedit.
+                        Consequuntur molestiae nam aliquid ipsa excepturi deserunt cum dolores assumenda impedit. Nihil
+                        possimus alias consectetur molestiae, quasi consequatur adipisci dolor pariatur doloremque saepe
+                        sapiente in?</p>
+                </div>
+            </div>
+            <div class="col-3">
+                <button type="button" id="animateBtn">animateBtn</button>
+            </div>
+            <div class="col-3">
+                <button type="button" id="stopBtn">stopBtn</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+
+                <p id="cellbackP">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corporis nesciunt minus fugiat quasi
+                    repellendus praesentium sequi harum quia, delectus qui aspernatur, ex quas nemo ratione
+                    necessitatibus voluptate perferendis sint. Quod ea, voluptate impedit quo mollitia ipsam suscipit
+                    tempora doloribus veritatis!lorem10necessitatibus voluptate perferendis sint. Quod ea, voluptate impedit quo mollitia ipsam suscipit
+                    tempora doloribus veritatis!lorem10necessitatibus voluptate perferendis sint. Quod ea, voluptate impedit quo mollitia ipsam suscipit
+                    tempora doloribus veritatis!lorem10necessitatibus voluptate perferendis sint. Quod ea, voluptate impedit quo mollitia ipsam suscipit
+                    tempora doloribus veritatis!lorem10</p>
+            </div>
+            <div class="col-3">
+                <button type="button" id="cellbackBtn">淡出消失</button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script>
+
+        $(document).ready(function () {
+            $('p').click(function () {
+                $('p').hide();
+            });
+
+            $('#hideBtn').click(function () {
+                $('p').hide();
+            });
+
+            $('#showBtn').click(function () {
+                $('p').show();
+            });
+
+            $('#toggleBtn').click(function () {
+                $('p').toggle();
+            });
+            $('#fadeToBtn').click(function () {
+                $('p').fadeTo("slow", 0.5);
+            });
+            $('#fadeInBtn').click(function () {
+                $('#pfade').fadeIn()
+            });
+            $('#animateBtn').click(function () {
+                $('.box').animate(
+                    {
+                        width: "2000px",
+                        'font-size': '30px',
+                    }, 5000
+                );
+            });
+
+            $('#stopBtn').click(() => {
+                $('.box').stop();
+            });
+
+            $('#cellbackBtn').click(() => {
+                $('#cellbackP').hide(3000, () =>{
+                    alert('yesss');
+                });
+            });
+
+            console.log(new Date($.now()));
+
+            let newDate = new Date();
+            
+        });
+    </script>
+</body>
+
+</html>
