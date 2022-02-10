@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+
+<body>
+
+
+    <div class="container mt-5">
+        <button type="button" class="btn btn-secondary">Secondary</button>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>id</td>
+                    <td>縣市</td>
+                    <td>時間一</td>
+                    <td>時間二</td>
+                    <td>天氣</td>
+                </tr>
+
+            </thead>
+            <tbody class="weather">
+                <tr>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $.ajax({
+                type: "get",
+                url: "https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/F-C0032-001?Authorization=CWB-8CE3FEDC-E7BF-43FA-931F-1AD1B143E0E2&downloadType=WEB&format=JSON",
+                dataType: 'json',
+
+                success: function (result) {
+                    data = result.cwbopendata.dataset.location;
+                    console.log('data', data);
+
+
+                    // 時間
+                    const hourArr = [];
+                    hourArr[0]= "凌晨";
+                    hourArr[6]= "白天";
+                    hourArr[12]= "下午";
+                    hourArr[18]= "晚上";
+                    console.log('hourArr',hourArr);
+
+                    const time0 = new Date(data[0].weatherElement[0].time[0].startTime);
+                    const time1 = new Date(data[0].weatherElement[0].time[0].startTime);
+                    const time2 = new Date(data[0].weatherElement[0].time[0].startTime);
+
+                    timeText0 = `${time0.getFullYear()} / ${time0.getMonth()+1} / ${time0.getDate()} ${hourArr[time0.getHours()]} `;
+                    timeText1 = `${time1.getFullYear()} / ${time0.getMonth()+1} / ${time0.getDate()} ${hourArr[time0.getHours()]} `;
+                    timeText2 = `${time2.getFullYear()} / ${time0.getMonth()+1} / ${time0.getDate()} ${hourArr[time0.getHours()]} `;
+
+                    console.log('timeText0',timeText0);
+                    console.log('timeText1',timeText1);
+                    console.log('timeText2',timeText2);
+
+                    $('tr>th').eq(2).text(timeText0);
+                    $('tr>th').eq(3).text(timeText1);
+                    $('tr>th').eq(4).text(timeText2);
+
+
+
+                    for (let i = 0; i < data.length; i++) {
+
+                        $('tbody').append(`
+                        
+                    <tr>
+                        <td>${i + 1}</td>
+                        <td>${data[i].locationName}</td>
+                        <td>
+                            ${data[i].weatherElement[0].time[0].parameter.parameterName}
+                            ${data[i].weatherElement[2].time[0].parameter.parameterName} - 
+                            ${data[i].weatherElement[1].time[0].parameter.parameterName}
+                        &deg;C
+                        <img src="../img/day/${data[i].weatherElement[0].time[0].parameter.parameterValue}.svg" 
+                        alt=" ${data[i].weatherElement[1].time[0].parameter.parameterValue}.svg" style="float;width:2rem">
+                        </td>
+                        <td>
+                            ${data[i].weatherElement[0].time[1].parameter.parameterName}
+                            ${data[i].weatherElement[2].time[1].parameter.parameterName} - 
+                            ${data[i].weatherElement[1].time[1].parameter.parameterName}
+
+                            &deg;C
+                            <img src="../img/day/${data[i].weatherElement[0].time[1].parameter.parameterValue}.svg" 
+                        alt=" ${data[i].weatherElement[1].time[0].parameter.parameterValue}.svg" style="float;width:2rem">
+
+                        </td>
+                        <td>
+                            ${data[i].weatherElement[0].time[2].parameter.parameterName} - 
+                            ${data[i].weatherElement[2].time[2].parameter.parameterName} - 
+                            ${data[i].weatherElement[1].time[2].parameter.parameterName}
+
+                            &deg;C
+                            <img src="../img/day/${data[i].weatherElement[0].time[2].parameter.parameterValue}.svg" 
+                        alt=" ${data[i].weatherElement[1].time[0].parameter.parameterValue}.svg" style="float;width:2rem">
+                        </td>
+                        
+                        
+                    </tr>
+                        
+                    `);
+
+
+
+                    }
+                    $('table').DataTable();
+                }
+            });
+
+        });
+
+    </script>
+    <script>
+
+    </script>
+
+</body>
+
+</html>
